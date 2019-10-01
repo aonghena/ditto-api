@@ -88,7 +88,7 @@ Wrong Headers
 ---------------
 ### DETECT  
 \
-157.245.127.122:6978/detect   \
+157.245.127.122:6978/detect   
 ```json
 headers: {
     'token' : TOKEN,
@@ -113,13 +113,11 @@ bad API KEY\
 ```
 \
 wrong headers  
-401: \
+401: 
 ```json
 {
     "error": "bad"
 }
 ```
-
-
 -------------
 
