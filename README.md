@@ -1,22 +1,28 @@
 # ditto-api
-api
 
-## api  
-### HEALTH  
-Use to check health of API  
+  
+### HEALTH 
+
+\
+Use to check health of API  \
 157.245.127.122:6978/health - checks health  
-------------
- ### FIND  
 
-157.245.127.122:6978/find   
+------------
+ 
+ ### FIND  
+\
+157.245.127.122:6978/find 
+```json
 headers: {
     'token' : TOKEN,
     'faceId' : faceId,
     'faceList': faceList
 }
-  
-Return:  
-Okay 200:     
+```
+  \
+Return:  \
+Okay 200:
+```json
 [
     {
         "persistedFaceId": "1b58de70-d6c5-422e-9d49-40b600e1d464",
@@ -59,49 +65,61 @@ Okay 200:
         "confidence": 0.20325
     }
 ]
-  
-  
-error  
-bad API KEY  
+```
+error  \
+bad API KEY  \
 403:    
+```json
 {
     "error": "bad token"
 }
-wrong headers  
+```
+\
+Wrong Headers  
+```json
 {
     "error": {
         "code": "CODE",
         "message": "MESSAGE."
     }
 }
+```
+
 ---------------
 ### DETECT  
-
-157.245.127.122:6978/detect   
+\
+157.245.127.122:6978/detect   \
+```json
 headers: {
     'token' : TOKEN,
-    'faceId' : faceId,
-    'faceList': faceList
+    'url' : faceId
 }
-
-
+```
+\
 Return:    
-Okay 200:    
+Okay 200:  
+```json
 {
     "faceId": "97868cf9-bb8e-4017-aeb3-ea602dd5f6b4"
 }  
-
-error  
-bad API KEY  
+```
+error\
+bad API KEY\
 403:  
+```json
 {
     "error": "bad token"
 }
-
-wrong headers    
-401: 
+```
+\
+wrong headers  
+401: \
+```json
 {
     "error": "bad"
 }
+```
+
+
 -------------
 
