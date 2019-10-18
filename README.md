@@ -14,9 +14,9 @@ Use to check health of API  \
 157.245.127.122:6978/find 
 ```json
 headers: {
-    'token' : TOKEN,
-    'faceId' : faceId,
-    'faceList': faceList
+    "token" : TOKEN,
+    "faceId" : faceId,
+    "faceList": faceList
 }
 ```
   \
@@ -91,21 +91,139 @@ Wrong Headers
 157.245.127.122:6978/detect   
 ```json
 headers: {
-    'token' : TOKEN,
-    'url' : faceId
+    "token" : TOKEN,
+    "url" : faceId
 }
 ```
 \
 Return:    
 Okay 200:  
 ```json
-{
-    "faceId": "97868cf9-bb8e-4017-aeb3-ea602dd5f6b4"
-}  
+[
+  {
+    "faceId": "f51c2640-ca02-4e0c-a1eb-5ce6599e52a2",
+    "faceRectangle": {
+      "top": 74,
+      "left": 40,
+      "width": 111,
+      "height": 111
+    },
+    "faceLandmarks": {
+      "pupilLeft": {
+        "x": 67.4,
+        "y": 109
+      },
+      "pupilRight": {
+        "x": 115.8,
+        "y": 99.2
+      },
+      "noseTip": {
+        "x": 93.2,
+        "y": 137.8
+      },
+      "mouthLeft": {
+        "x": 79.2,
+        "y": 158.4
+      },
+      "mouthRight": {
+        "x": 124.4,
+        "y": 149
+      },
+      "eyebrowLeftOuter": {
+        "x": 49.9,
+        "y": 101.3
+      },
+      "eyebrowLeftInner": {
+        "x": 77.1,
+        "y": 97.1
+      },
+      "eyeLeftOuter": {
+        "x": 58.9,
+        "y": 111.6
+      },
+      "eyeLeftTop": {
+        "x": 66.5,
+        "y": 106.2
+      },
+      "eyeLeftBottom": {
+        "x": 67.4,
+        "y": 112
+      },
+      "eyeLeftInner": {
+        "x": 75.4,
+        "y": 109.6
+      },
+      "eyebrowRightInner": {
+        "x": 100.3,
+        "y": 93.1
+      },
+      "eyebrowRightOuter": {
+        "x": 131.9,
+        "y": 88.7
+      },
+      "eyeRightInner": {
+        "x": 107.7,
+        "y": 102.1
+      },
+      "eyeRightTop": {
+        "x": 114.7,
+        "y": 97
+      },
+      "eyeRightBottom": {
+        "x": 115.8,
+        "y": 102.1
+      },
+      "eyeRightOuter": {
+        "x": 122.8,
+        "y": 98.9
+      },
+      "noseRootLeft": {
+        "x": 83.9,
+        "y": 107.8
+      },
+      "noseRootRight": {
+        "x": 97.2,
+        "y": 105.3
+      },
+      "noseLeftAlarTop": {
+        "x": 83.1,
+        "y": 128.9
+      },
+      "noseRightAlarTop": {
+        "x": 106.1,
+        "y": 125.9
+      },
+      "noseLeftAlarOutTip": {
+        "x": 79.6,
+        "y": 138.8
+      },
+      "noseRightAlarOutTip": {
+        "x": 110.9,
+        "y": 133.7
+      },
+      "upperLipTop": {
+        "x": 99,
+        "y": 152.7
+      },
+      "upperLipBottom": {
+        "x": 99.7,
+        "y": 156.1
+      },
+      "underLipTop": {
+        "x": 101.6,
+        "y": 162
+      },
+      "underLipBottom": {
+        "x": 103.1,
+        "y": 168.3
+      }
+    }
+  }
+]
 ```
 error\
 bad API KEY\
-403:  
+200:  
 ```json
 {
     "error": "bad token"
@@ -116,7 +234,10 @@ wrong headers
 401: 
 ```json
 {
-    "error": "bad"
+    "error": {
+        "code": "InvalidURL",
+        "message": "Invalid image URL."
+    }
 }
 ```
 -------------

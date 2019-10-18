@@ -55,10 +55,10 @@ class detect(object):
         }
         params = urllib.parse.urlencode({
             'returnFaceId': 'true',
-            'returnFaceLandmarks': 'false',
+            'returnFaceLandmarks': 'true',
             'recognitionModel': 'recognition_02',
             'returnRecognitionModel': 'false',
-            'detectionModel': 'detection_02'
+            'detectionModel': 'detection_01'
         })
         body = json.dumps({
             "url" : url
@@ -67,10 +67,11 @@ class detect(object):
             conn = http.client.HTTPSConnection('eastus.api.cognitive.microsoft.com')
             conn.request("POST", "/face/v1.0/detect?%s" % params, body, headers)
             response = conn.getresponse()
-            data = json.load(response)
+            #data = json.load(response)
             resp.status = falcon.HTTP_401
             resp.body = "{ \"error\": \"bad\"}"
-            resp.body = "{ \"faceId\": \"" + data[0]["faceId"] + "\" }"
+            data = json.load(response)
+            resp.body = json.dumps(data)
             resp.status = falcon.HTTP_200
             conn.close()
         except Exception as e:
