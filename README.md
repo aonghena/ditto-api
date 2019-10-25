@@ -240,5 +240,43 @@ wrong headers
     }
 }
 ```
+---------------
+### DETECT1  
+\
+157.245.127.122:6978/detect1   
+```json
+headers: {
+    "token" : TOKEN,
+    "url" : faceId
+}
+```
+\
+Return:    
+Okay 200:  
+```json
+[
+  {
+    "faceId": "f51c2640-ca02-4e0c-a1eb-5ce6599e52a2",
+  }
+]
+```
+error\
+bad API KEY\
+200:  
+```json
+{
+    "error": "bad token"
+}
+```
+\
+wrong headers  
+401: 
+```json
+{
+    "error": {
+        "code": "InvalidURL",
+        "message": "Invalid image URL."
+    }
+}
+```
 -------------
-

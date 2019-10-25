@@ -1,13 +1,13 @@
 import falcon
 import bjoern
-from side import detect, find, status
+from side import detect, find, status, upload
 
 app = falcon.API()
 
 app.add_route('/detect/', detect())
 app.add_route('/find/', find())
 app.add_route('/health/', status())
-
+app.add_route('/photo/', upload())
 
 if __name__ == '__main__':
     print("Server Started")
