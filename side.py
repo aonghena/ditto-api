@@ -105,6 +105,7 @@ class detect1(object):
         params = urllib.parse.urlencode({
             'returnFaceId': 'true',
             'returnFaceLandmarks': 'false',
+            'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
             'recognitionModel': 'recognition_02',
             'returnRecognitionModel': 'false',
             'detectionModel': 'detection_02'
